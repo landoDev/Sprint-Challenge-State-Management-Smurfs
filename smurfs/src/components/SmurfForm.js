@@ -41,7 +41,7 @@ const SmurfForm = props =>{
         <label>Name</label>
         <input type='text' name='name' onChange={handleChanges}></input>
         <label>Age</label>
-        <input type='number' name='age' min='1' max='99' onChange={handleChanges}></input>
+        <input type='number' name='age' min='1' max='1000' onChange={handleChanges}></input>
         <label>Height</label>
         <input type='text' name='height' onChange={handleChanges}></input>
         <button> add smurfs </button>

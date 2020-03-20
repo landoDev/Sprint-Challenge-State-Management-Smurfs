@@ -1,10 +1,9 @@
-import { UPDATE_SMURFS, FETCH_DATA, ADD_SMURF } from "../actions";
-
-//May be able to make an axios for state but id like to avoid it
+import { GET_SMURFS, FETCH_DATA, ADD_SMURF } from "../actions";
 
 const initialState = {
   smurfs: [],
   isFetching: false,
+  isAdding: false,
   error: ""
 };
 
@@ -17,16 +16,18 @@ export const smurfReducer = (state = initialState, action) => {
         ...state,
         isFetching: true
       };
-    case UPDATE_SMURFS:
+    case GET_SMURFS:
       return {
         ...state,
         smurfs: action.payload,
-        isFetching: false
+        isFetching: false,
+        isAdding: false
       };
     case ADD_SMURF:
       return {
         ...state,
-        smurfs: [...state.smurfs, action.payload]
+        smurfs: [...state.smurfs, action.payload],
+        isAdding: true
       };
     default:
       return state;
