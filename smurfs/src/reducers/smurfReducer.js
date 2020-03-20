@@ -1,4 +1,4 @@
-import { GET_SMURFS, FETCH_DATA, ADD_SMURF } from "../actions";
+import { GET_SMURFS, FETCH_DATA, ADD_SMURF, RESET_FORM } from "../actions";
 
 const initialState = {
   smurfs: [],
@@ -29,6 +29,11 @@ export const smurfReducer = (state = initialState, action) => {
         smurfs: [...state.smurfs, action.payload],
         isAdding: true
       };
+    case RESET_FORM:
+      return{
+        ...state,
+        isAdding: false
+      }
     default:
       return state;
   }

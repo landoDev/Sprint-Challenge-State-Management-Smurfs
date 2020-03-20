@@ -14,6 +14,12 @@ const SmurfForm = props =>{
     const handleGetState = e =>{
         e.preventDefault();
         props.getState()
+        setNewSmurf({
+            name: '',
+            age: NaN,
+            height: '',
+            id: Date.now()
+        })
 
     }
     const handleChanges = e =>{
@@ -53,7 +59,9 @@ const SmurfForm = props =>{
 
 const mapPropsToState = state =>{
     return{
-        smurf: state.smurf
+        smurfs: state.smurfs,
+        isFetching: state.isFetching,
+        isAdding: state.isAdding
     };
 };
 
