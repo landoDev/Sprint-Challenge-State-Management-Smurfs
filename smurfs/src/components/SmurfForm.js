@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 import { connect } from 'react-redux'
-import { addState } from '../actions/index'
+import { getState, addState } from '../actions/index'
 
 const SmurfForm = props =>{
     const [newSmurf, setNewSmurf]= useState({
@@ -10,6 +10,12 @@ const SmurfForm = props =>{
       height: '',
       id: Date.now()
     })
+
+    const handleGetState = e =>{
+        e.preventDefault();
+        props.getState()
+
+    }
     const handleChanges = e =>{
       e.preventDefault();
       console.log('Target',e.target.name)
@@ -27,7 +33,8 @@ const SmurfForm = props =>{
     console.log('this components state', newSmurf )
     return(
         <>
-        {props.isFething ? <div>adding smurf</div> : 
+        {props.isFetching ? <div>Summoning Smurf Village</div> : <button onClick={handleGetState}>Click to Summon Smurf Village</button>}
+        {props.isAdding ? <div>Adding NEW Smurf!</div> : 
         
         <form onSubmit={handleAddState}>
         <h2>Add a Smurf!</h2>
@@ -50,4 +57,4 @@ const mapPropsToState = state =>{
     };
 };
 
-export default connect(mapPropsToState, { addState })(SmurfForm);
+export default connect(mapPropsToState, { getState, addState })(SmurfForm);

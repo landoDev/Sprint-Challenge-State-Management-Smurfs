@@ -9,7 +9,8 @@ const initialState = {
 };
 
 export const smurfReducer = (state = initialState, action) => {
-  console.log("ACTION DISPATCHED", action);
+  console.log("ACTION DISPATCHED", action.type);
+  console.log("PAYLOAD", action.payload);
   switch (action.type) {
     case FETCH_DATA:
       return {
