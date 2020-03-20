@@ -6,7 +6,7 @@ const SmurfVillage = props =>{
     const [deleteSmurf, setDeleteSmurf] = useState({});
     const handleDelete = e =>{
         e.preventDefault();
-        console.log(e.target.id)
+        // console.log(e.target.id)
         setDeleteSmurf({
             ...deleteSmurf,
             id: e.target.id

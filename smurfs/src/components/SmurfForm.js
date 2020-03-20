@@ -24,7 +24,7 @@ const SmurfForm = props =>{
     }
     const handleChanges = e =>{
       e.preventDefault();
-      console.log('Target',e.target.name)
+    //   console.log('Target',e.target.name)
       setNewSmurf({
         ...newSmurf,
         [e.target.name]: e.target.value
@@ -36,7 +36,7 @@ const SmurfForm = props =>{
         props.addState(newSmurf)
 
     }
-    console.log('this components state', newSmurf )
+    // console.log('this components state', newSmurf )
     return(
         <>
         {props.isFetching ? <div>Summoning Smurf Village</div> : <button onClick={handleGetState}>Click to Summon Smurf Village</button>}
