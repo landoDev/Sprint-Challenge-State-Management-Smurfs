@@ -1,4 +1,4 @@
-import { GET_SMURFS, FETCH_DATA, ADD_SMURF, RESET_FORM } from "../actions";
+import { GET_SMURFS, FETCH_DATA, ADD_SMURF, RESET_FORM, SET_ERROR, DELETE_SMURF } from "../actions";
 
 const initialState = {
   smurfs: [],
@@ -29,10 +29,21 @@ export const smurfReducer = (state = initialState, action) => {
         smurfs: [...state.smurfs, action.payload],
         isAdding: true
       };
+    case SET_ERROR:
+      return{
+        ...state,
+        isFetching: false,
+        error: action.payload
+      }
     case RESET_FORM:
       return{
         ...state,
         isAdding: false
+      }
+    case DELETE_SMURF:
+      return{
+        ...state,
+        smurfs: state.smurfs.filter(smurf => smurf.id !== action.payload)
       }
     default:
       return state;

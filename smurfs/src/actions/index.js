@@ -5,6 +5,7 @@ export const GET_SMURFS = 'GET_SMURFS'
 export const ADD_SMURF = 'ADD_SMURF'
 export const SET_ERROR = 'SET_ERROR'
 export const RESET_FORM = 'RESET_FORM'
+export const DELETE_SMURF = 'DELETE_SMURF'
 
 export const getState = () => dispatch =>{
   dispatch({type: FETCH_DATA});
@@ -35,4 +36,8 @@ export const addState = smurf => dispatch =>{
         })
     setTimeout(()=> dispatch({type: RESET_FORM}), 2000)
     ;
+}
+
+export const crudState = smurf => dispatch =>{
+    dispatch({type: DELETE_SMURF, payload: smurf})
 }
